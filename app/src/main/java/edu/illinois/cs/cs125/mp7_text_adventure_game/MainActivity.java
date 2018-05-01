@@ -7,7 +7,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.Switch;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
     MediaPlayer mySong;
     Button enter;
     Switch musicOnOff;
+    String command;
+    EditText commandInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,12 +27,16 @@ public class MainActivity extends AppCompatActivity {
 
         mySong = MediaPlayer.create(MainActivity.this, R.raw.goodbyemoonmen);
 
-        enter = findViewById(R.id.enterText);
+        commandInput = (EditText) findViewById(R.id.commandInput);
 
+        enter = (Button) findViewById(R.id.enterText);
         enter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d(TAG,"text enter button clicked");
+                command = commandInput.getText().toString();
+                showToast(v);
+
             }
         });
 
@@ -44,6 +52,10 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void showToast(View view) {
+             Toast.makeText(this,"good boi", Toast.LENGTH_LONG).show();
     }
 
     @Override
