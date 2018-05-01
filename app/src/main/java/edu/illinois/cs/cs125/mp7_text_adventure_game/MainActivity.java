@@ -34,9 +34,28 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d(TAG,"text enter button clicked");
-                command = commandInput.getText().toString();
                 showToast(v);
+                command = commandInput.getText().toString();
+                if (command.equals("left")){
 
+
+                } else if (command.equals("right")){
+
+
+
+                } else if (command.equals("forward")) {
+
+
+
+                } else if (command.equals("back")) {
+
+
+
+                } else {
+
+
+
+                }
             }
         });
 
