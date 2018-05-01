@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/Thistle"
     tools:context=".MainActivity">
 
     <TextView
@@ -87,7 +88,6 @@
         android:layout_marginTop="4dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
         app:layout_constraintBottom_toTopOf="@+id/image"
         app:layout_constraintEnd_toStartOf="@+id/enterText"
         app:layout_constraintHorizontal_bias="1.0"
