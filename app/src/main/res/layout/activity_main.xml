@@ -7,6 +7,7 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="My UIUC Sophmore Year"
@@ -38,7 +39,9 @@
         android:id="@+id/music"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="music" />
+        android:text="music"
+        tools:layout_editor_absoluteX="231dp"
+        tools:layout_editor_absoluteY="0dp" />
 
     <EditText
         android:id="@+id/editText"

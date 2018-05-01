@@ -6,20 +6,25 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 
 public class MainActivity extends AppCompatActivity {
 
-    /** Default tag for mp7. */
     private static final String TAG = "Mp7:Main";
-
     MediaPlayer mySong;
+    Button enter;
+    Switch musicOnOff;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mySong = MediaPlayer.create(MainActivity.this,R.raw)
-        final Button enter = findViewById(R.id.enterText);
+
+        mySong = MediaPlayer.create(MainActivity.this, R.raw.goodbyemoonmen);
+
+        enter = findViewById(R.id.enterText);
+
         enter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -27,21 +32,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        musicOnOff = (Switch) findViewById(R.id.music);
+        musicOnOff.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
+                if(musicOnOff.isChecked()) {
+                    mySong.start();
+                } else {
+                    mySong.release();
+                }
+            }
+        });
     }
 
-    public void playMusic(View v) {
-
-
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mySong.release();
     }
-
-
-
-
-
-
-
-
-
-
 }
